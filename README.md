@@ -111,6 +111,6 @@ Once you have this repository set up locally and are in the `docs-site` director
 
 Once complete, you can open your browser and view the doc site locally at [http://localhost:3000/](http://localhost:3000/). As you make changes to the source files, the preview build will be triggered automatically, and then you can refresh your browser to see the changes.
 
-## Thank you!
+## Thank you very much!
 
 We appreciate your contributions to our documentation!
