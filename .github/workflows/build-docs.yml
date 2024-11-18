@@ -56,28 +56,28 @@ jobs:
       - name: Build with Docusaurus
         run: npm run build
 
-      - name: Deploy to Netlify
-        id: deploy
-        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
-        uses: nwtgck/actions-netlify@v2
-        with:
-          publish-dir: build
-          production-branch: master
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: true
-          enable-commit-comment: false
-          overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      # - name: Deploy to Netlify
+      #   id: deploy
+      #   if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+      #   uses: nwtgck/actions-netlify@v2
+      #   with:
+      #     publish-dir: build
+      #     production-branch: master
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     deploy-message: "Deploy from GitHub Actions"
+      #     enable-pull-request-comment: true
+      #     enable-commit-comment: false
+      #     overwrites-pull-request-comment: true
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: Compress Build Archive
-        if: ${{ steps.deploy.conclusion == 'skipped' }}
+        # if: ${{ steps.deploy.conclusion == 'skipped' }}
         run: tar --remove-files --zstd -cf build.tar.zst build
 
       - name: Upload Build Artifact
-        if: ${{ steps.deploy.conclusion == 'skipped' }}
+        # if: ${{ steps.deploy.conclusion == 'skipped' }}
         uses: actions/upload-artifact@v3
         with:
           name: preview-build-${{ github.event.pull_request.number }}
