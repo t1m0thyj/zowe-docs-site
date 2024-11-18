@@ -114,6 +114,6 @@ Once complete, you can open your browser and view the doc site locally at [http:
 **Note:**  If you get an error `digital envelope routines::unsupported` this may be because of an incompatability between Node 18 and Webpack 5.  To remedy this set the environment variable `NODE_OPTIONS=--openssl-legacy-provider`.  
 ![A gif build error node 16](./docs/images/troubleshoot/build/digital_envelope_unsupported.png)
 
-## Thank you!
+## Thank you! Gracias!
 
 We appreciate your contributions to our documentation!
